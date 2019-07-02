@@ -1,0 +1,30 @@
+{
+  "name": "vue-emoji",
+  "version": "1.0.0",
+  "description": "this is a emoji component",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "serve": "webpack-dev-server --open --config webpack.dev.config.js"
+  },
+  "dependencies": {
+    "mini-css-extract-plugin": "^0.7.0",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10",
+    "webpack-merge": "^4.2.1"
+  },
+  "devDependencies": {
+    "css-loader": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "pug": "^2.0.4",
+    "pug-filters": "^3.1.1",
+    "pug-plain-loader": "^1.0.0",
+    "style-loader": "^0.23.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue-loader": "^15.7.0",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
+  }
+}
