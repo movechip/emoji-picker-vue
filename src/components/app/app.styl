@@ -1,22 +1,33 @@
 $width-emoji = 200px
 $border-color-emoji = #eee
-$bg-color-emoji = #ccc
 $font-size-emoji = 24px
+$bgcolor-emoji-hover = #eee
+$count-oneline-emoji = 10
+$color-catagary-caption = #eee
 *
     margin 0
     padding 0
 .emoji
-    width $width-emoji
+    width $font-size-emoji * $count-oneline-emoji
     border 1px solid $border-color-emoji
     border-radius 5px
     padding 5px
-    background-color $bg-color-emoji
     font-size $font-size-emoji
     ul
         list-style none
+        p
+            font-size $font-size-emoji - 8px
+            color $color-catagary-caption
         li
             float left
             cursor pointer
+            width $font-size-emoji
+            height $font-size-emoji
+            line-height $font-size-emoji
+            user-select none
+            &:hover
+                background-color $bgcolor-emoji-hover
+                border-radius 5px
 
 .clearfix
     zoom 1

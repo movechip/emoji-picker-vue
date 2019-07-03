@@ -8,5 +8,6 @@ div(class="emoji")
         div(class="recent")
         div(class="container")
             ul(class="clearfix")
+                p #face
                 li(@click="d(v)" v-for="(v,k) in emojiCodes" :key="k" v-html="v")
 </template>
