@@ -1,0 +1,28 @@
+$width-emoji = 200px
+$border-color-emoji = #eee
+$bg-color-emoji = #ccc
+$font-size-emoji = 24px
+*
+    margin 0
+    padding 0
+.emoji
+    width $width-emoji
+    border 1px solid $border-color-emoji
+    border-radius 5px
+    padding 5px
+    background-color $bg-color-emoji
+    font-size $font-size-emoji
+    ul
+        list-style none
+        li
+            float left
+            cursor pointer
+
+.clearfix
+    zoom 1
+    &:after
+        display block
+        content ' '
+        clear both
+        height 0
+        visibility hidden

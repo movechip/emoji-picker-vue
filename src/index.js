@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import app from './components/app.vue';
+import app from './components/app/app.vue';
 
 new Vue({
     el: '#app',
@@ -7,6 +7,15 @@ new Vue({
         app
     },
     data: {
-        title: 'sdf'
+        target: null,
+        isShowEmoji: false
+    },
+    created() {
+        this.target = document.querySelector('#target');
+    },
+    methods: {
+        showEmoji() {
+            this.isShowEmoji = !this.isShowEmoji;
+        }
     }
 })

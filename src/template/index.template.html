@@ -6,13 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Vue-emoji</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .emoji-trigger {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        #target {
+            height: 100px;
+            width: 300px;
+            border: 1px solid #eee;
+            overflow-y: auto;
+        }
+    </style>
 </head>
 
 <body>
+   <div id="target" contenteditable="true"></div>
    <div id="app">
-       {{title}}
-       <app/>
-   </div> 
+    <label @click="showEmoji" class="emoji-trigger" v-html="'\u{1F600}'"></label>
+    <app v-show="isShowEmoji" :target="target"/>
+   </div>
 </body>
 
 </html>
