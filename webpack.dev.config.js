@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base.js');
-console.log(process.env.NODE_ENV);
+
 module.exports = merge(webpackBaseConfig,{
     mode: "development",
     devtool: 'eval-source-map',

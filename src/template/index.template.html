@@ -24,8 +24,9 @@
 <body>
    <div id="target" contenteditable="true"></div>
    <div id="app">
-    <label @click="showEmoji" class="emoji-trigger" v-html="'\u{1F600}'"></label>
-    <app v-show="isShowEmoji" :target="target"/>
+    <app :target="target" :show="isShowEmoji">
+        <label @click="showEmoji" class="emoji-trigger" v-html="triggerCode"></label>
+    </app>
    </div>
 </body>
 
