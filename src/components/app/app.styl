@@ -3,70 +3,15 @@ $border-color-emoji = #eee
 $bgcolor-emoji = #fff
 $font-size-emoji = 24px
 $bgcolor-emoji-hover = #eee
-$count-oneline-emoji = 10
+$count-oneline-emoji = 8
 $color-catagary-caption = #eee
-$height-emoji-container = 150px
+$height-emoji-container = 180px
+$width-emoji-code = $font-size-emoji + 12px
+$height-emoji-code = $width-emoji-code
 *
     margin 0
     padding 0
-.con
-    position relative
-.emoji
-    position absolute
-    top 0
-    left 0
-    width $font-size-emoji * $count-oneline-emoji
-    background-color $bgcolor-emoji
-    border 1px solid $border-color-emoji
-    border-radius 5px
-    padding 5px
-    font-size $font-size-emoji
-    .nav
-        ul
-            list-style none
-            li
-                float left
-                width 25%
-                text-align center
-                label
-                    display inline-block
-                    cursor pointer
-                    user-select none
-                    &:after
-                        content ''
-                        display block
-                        visibility hidden
-                        height 5px
-                        background-color #eee
-                    &:hover:after
-                        visibility visible
-                .isShow
-                    &:after
-                        visibility: visible;
-                        background-color: gray;
-
-    .body
-        .container
-            height $height-emoji-container
-            overflow-y auto
-            div
-                display none
-                ul
-                    list-style none
-                    li
-                        float left
-                        cursor pointer
-                        width $font-size-emoji
-                        height $font-size-emoji
-                        line-height $font-size-emoji
-                        user-select none
-                        &:hover
-                            background-color $bgcolor-emoji-hover
-                            border-radius 5px
-            .divIsShow
-                display block
-
-.clearfix
+$clearfix
     zoom 1
     &:after
         display block
@@ -74,3 +19,73 @@ $height-emoji-container = 150px
         clear both
         height 0
         visibility hidden
+$setUL
+    ul
+        list-style none
+        @extend $clearfix
+        li
+            float left
+            cursor pointer
+            width $width-emoji-code
+            height $height-emoji-code
+            text-align center
+            line-height $height-emoji-code
+            user-select none
+            &:hover
+                background-color $bgcolor-emoji-hover
+                border-radius 5px
+.emoji
+    position relative
+    &-main
+        position absolute
+        top 0
+        left 0
+        width ($width-emoji-code) * $count-oneline-emoji
+        background-color $bgcolor-emoji
+        border 1px solid $border-color-emoji
+        border-radius 5px
+        padding 5px
+        font-size $font-size-emoji
+        &__nav
+            border-bottom 1px solid #eee
+            ul
+                list-style none
+                @extend $clearfix
+                li
+                    float left
+                    width 25%
+                    text-align center
+                    label
+                        display inline-block
+                        cursor pointer
+                        user-select none
+                        &:after
+                            content ''
+                            display block
+                            visibility hidden
+                            height 5px
+                            background-color #eee
+                        &:hover:after
+                            visibility visible
+                    .switch-nav
+                        &:after
+                            visibility: visible;
+                            background-color: gray;
+
+        
+        &__recent
+            border-bottom 1px solid #eee
+            p
+                font-size 12px
+                color #ddd
+                text-align center
+            @extend $setUL
+        &__container
+            height $height-emoji-container
+            overflow-y auto
+            div
+                display none
+                @extend $setUL
+                
+            .switch-container
+                display block
