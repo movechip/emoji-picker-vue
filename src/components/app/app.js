@@ -1,40 +1,45 @@
-import { emojiCodes, navCodes } from './codepoints';
-let navState = [],
-    containerState = [];
-navCodes.forEach(v => { 
-    navState.push({ 'switch-nav': false }); 
-    containerState.push({ 'switch-container': false }) 
-});
+import { emojiCodes, tabCodes, recentCodes } from './codepoints';
+
 export default {
     props: ['target', 'show'],
     data() {
         return {
             emojiCodes,
-            navCodes,
+            tabCodes,
             caret: 0,
-            navState,
-            containerState,
+            tabState: [],
+            tabviewState: [],
             showIdx: 0,
-            recents: ['\u{1F600}', '\u{1F601}', '\u{1F602}', '\u{1F603}']
+            recentCodes
         }
+    },
+    created() {
+        this.tabCodes.forEach(_ => {
+            this.tabState.push({ 'emoji-js-tab--is-active': false });
+            this.tabviewState.push({ 'emoji-js-tabview--is-active': false })
+        });
     },
     mounted() {
         this.addClickEventToTarget();
         this.setPosition();
-        this.navState[this.showIdx]['switch-nav'] = true;
-        this.containerState[this.showIdx]['switch-container'] = true;
+        this.tabState[this.showIdx]['emoji-js-tab--is-active'] = true;
+        this.tabviewState[this.showIdx]['emoji-js-tabview--is-active'] = true;
     },
     methods: {
-        d(codepoint,flag) {
+        insertEmoji(codepoint, flag) {
             const html = this.target.innerHTML;
             this.target.innerHTML = html.substr(0, this.caret) + codepoint + html.substr(this.caret);
-            this.caret += 2;
 
-            this.setRecent(flag,codepoint);
+            codepoint.length === 1 ? this.caret += 1 : this.caret += 2;
+
+            this.setRecent(flag, codepoint);
         },
-        setRecent(flag,codepoint) {
-            if(this.recents.indexOf(codepoint) >= 0)return;
-            !flag ? (this.recents.length < 7 ? this.recents.unshift(codepoint) : (this.recents.pop(),this.recents.unshift(codepoint))) : '';
+        setRecent(flag, codepoint) {
+            if (this.recentCodes.indexOf(codepoint) >= 0) return;
+            flag ? '' : (this.recentCodes.length < 7 ? 
+                this.recentCodes.unshift(codepoint) : 
+                (this.recentCodes.pop(), this.recentCodes.unshift(codepoint))
+            );
         },
         addClickEventToTarget() {
             this.target.addEventListener('click', () => {
@@ -51,12 +56,12 @@ export default {
             emojiMain.style.top = top + 'px';
             emojiMain.style.left = left + 'px';
         },
-        emojiSwitch(k) {
-            this.navState[this.showIdx]['switch-nav'] = false;
-            this.containerState[this.showIdx]['switch-container'] = false;
+        switchTab(k) {
+            this.tabState[this.showIdx]['emoji-js-tab--is-active'] = false;
+            this.tabviewState[this.showIdx]['emoji-js-tabview--is-active'] = false;
             this.showIdx = k;
-            this.navState[k]['switch-nav'] = true;
-            this.containerState[k]['switch-container'] = true;
+            this.tabState[k]['emoji-js-tab--is-active'] = true;
+            this.tabviewState[k]['emoji-js-tabview--is-active'] = true;
         }
     }
 }

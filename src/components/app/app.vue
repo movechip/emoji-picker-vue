@@ -5,17 +5,17 @@
 div(ref="emoji" class="emoji")
     slot
     div(class="emoji-main" v-show="show")
-        div(class="emoji-main__nav")
-            ul
-                li(v-for="(v,k) in navCodes" :key="k")
-                    label(@click="emojiSwitch(k)" :class="navState[k]" v-html="v")
+        div(class="emoji-main__tab")
+            ul(class="emoji-l-list")
+                li(class="emoji-l-list__item--for-tab" v-for="(v,k) in tabCodes" :key="k")
+                    span(class="emoji-main__entity" @click="switchTab(k)" :class="tabState[k]" v-html="v")
                     
         div(class="emoji-main__recent")
-            p recent
-            ul
-                li(@click="d(v,'recent')" v-for="(v,k) in recents" :key="k" v-html="v")
-        div(class="emoji-main__container")
-            div(v-for="(v,k) in emojiCodes" :key="k" :class="containerState[k]")
-                ul
-                    li(@click="d(vv)" v-for="(vv,kk) in v.codes" :key="kk" v-html="vv")
+            p(class="emoji-main__text") recent
+            ul(class="emoji-l-list")
+                li(class="emoji-l-list__item" @click="insertEmoji(v,'recent')" v-for="(v,k) in recentCodes" :key="k" v-html="v")
+        div(class="emoji-main__body emoji__scroll")
+            div(class="emoji-main__tab-view" v-for="(v,k) in emojiCodes" :key="k" :class="tabviewState[k]")
+                ul(class="emoji-l-list")
+                    li(class="emoji-l-list__item" @click="insertEmoji(vv)" v-for="(vv,kk) in v.codes" :key="kk" v-html="vv")
 </template>
