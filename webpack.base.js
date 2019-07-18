@@ -65,7 +65,8 @@ module.exports = {
                         use: ['raw-loader', 'pug-plain-loader']
                     }
                 ]
-            }
+            },
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
         ]
     },
     plugins: [
@@ -83,13 +84,7 @@ module.exports = {
     ],
     optimization: {
         splitChunks: {
-            cacheGroups: {
-                commons: {
-                    name: "common",
-                    chunks: "initial", 
-                    minChunks: 1
-                }
-            }
+            
         }
     }
 }

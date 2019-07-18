@@ -9,7 +9,7 @@ new Vue({
     data: {
         target: null,
         isShowEmoji: false,
-        triggerCode: '\u{1F600}'
+        triggerCode: '&#x1F600;'
     },
     created() {
         this.target = document.querySelector('#target');

@@ -1,0 +1,103 @@
+*[data-v-3e3211d3] {
+  margin: 0;
+  padding: 0;
+}
+.emoji-l-list[data-v-3e3211d3]:after {
+  display: block;
+  content: ' ';
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+.emoji-l-list__item[data-v-3e3211d3],
+.emoji-l-list__item--for-tab[data-v-3e3211d3] {
+  float: left;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+}
+.emoji[data-v-3e3211d3] {
+  position: relative;
+}
+.emoji-main[data-v-3e3211d3] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 24px;
+}
+.emoji-main__tab[data-v-3e3211d3],
+.emoji-main__recent[data-v-3e3211d3] {
+  border-bottom: 1px solid #eee;
+}
+.emoji-main__text[data-v-3e3211d3] {
+  font-size: 12px;
+  color: #ddd;
+  text-align: center;
+}
+.emoji-main__body[data-v-3e3211d3] {
+  height: 180px;
+  width: 293px;
+  overflow-y: auto;
+}
+.emoji-main__tab-view[data-v-3e3211d3] {
+  display: none;
+}
+.emoji-main__entity[data-v-3e3211d3] {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+}
+.emoji-main__entity[data-v-3e3211d3]:after {
+  content: '';
+  display: block;
+  visibility: hidden;
+  height: 5px;
+  background-color: #eee;
+}
+.emoji-main__entity[data-v-3e3211d3]:hover:after {
+  visibility: visible;
+}
+.emoji-l-list[data-v-3e3211d3] {
+  list-style: none;
+}
+.emoji-l-list__item[data-v-3e3211d3] {
+  width: 36px;
+  height: 36px;
+  line-height: $height-emoji-code;
+}
+.emoji-l-list__item[data-v-3e3211d3]:hover {
+  background-color: #eee;
+  border-radius: 5px;
+}
+.emoji-l-list__item--for-tab[data-v-3e3211d3] {
+  width: 25%;
+}
+.emoji-js-tab--is-active[data-v-3e3211d3]:after {
+  visibility: visible;
+  background-color: #808080;
+}
+.emoji-js-tabview--is-active[data-v-3e3211d3] {
+  display: block;
+}
+.emoji__scroll[data-v-3e3211d3]::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.emoji__scroll[data-v-3e3211d3]::-webkit-scrollbar-corner {
+  background: rgba(0,0,0,0);
+}
+.emoji__scroll[data-v-3e3211d3]::-webkit-scrollbar-thumb {
+  background: #c2c2c2;
+  border-radius: 10px;
+}
+.emoji__scroll[data-v-3e3211d3]::-webkit-scrollbar-thumb:hover {
+  background: #b2b2b2;
+}
+.emoji__scroll[data-v-3e3211d3]::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
