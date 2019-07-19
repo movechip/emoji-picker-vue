@@ -1,16 +1,8 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: {
-        index: path.join(__dirname, "/src/index.js")
-    },
-    output: {
-        path: path.join(__dirname, "/dist"),
-        filename: "[name].js"
-    },
     resolve: {
         alias: {
             "vue$": "vue/dist/vue.js"
@@ -70,21 +62,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new VueLoaderPlugin(),
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: path.join(__dirname,'/src/template/index.template.html')
-        }),
-        new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
-            filename: '[name].css',
-            chunkFilename: '[id].css',
-        }),
-    ],
-    optimization: {
-        splitChunks: {
-            
-        }
-    }
+        new VueLoaderPlugin()
+    ]
 }

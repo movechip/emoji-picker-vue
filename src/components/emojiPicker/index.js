@@ -1,4 +1,5 @@
 import { emojiCodes, tabCodes, recentCodes } from './codepoints';
+import { returnStatement } from 'babel-types';
 
 export default {
     props: ['target', 'show'],
@@ -45,11 +46,11 @@ export default {
         addClickEventToTarget() {
             this.target.addEventListener('click', () => {
 
-                this.caret = document.getSelection().anchorOffset;console.log('click',this.caret);
+                this.caret = document.getSelection().anchorOffset;
             });
             this.target.addEventListener('keyup', () => {
 
-                this.caret = document.getSelection().anchorOffset;console.log('keyup',this.caret);
+                this.caret = document.getSelection().anchorOffset;
             });
         },
         setPosition() {
@@ -72,6 +73,19 @@ export default {
             //The color of unicode-emoji-code of IE9+ is only black and white
             window.navigator.userAgent.match(/(MSIE|Trident)/i) !== null ?
                 document.body.style.fontFamily = 'Segoe UI Emoji' : '';
+        },
+        setScrollBar() {debugger;
+            const flag = window.navigator.userAgent.match(/Webkit/i) == null;
+            if(!flag) return;
+            let tmpDiv = document.createElement('div');
+            tmpDiv.style.width = '100px';
+            document.body.append(tmpDiv);
+            tmpDiv.style.overflowY = 'scroll';
+            
+            const scrollBarWidth = 100 - tmpDiv.offsetWidth;
+            document.body.remove(tmpDiv);
+            const emojiBody = this.$refs.emojibody;
+            emojiBody.style.width = emojiBody.offsetWidth + scrollBarWidth + 'px';
         }
     }
 }

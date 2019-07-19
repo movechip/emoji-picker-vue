@@ -1,34 +1,31 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base.js');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(webpackBaseConfig,{
     mode: "production",
     entry: {
-        index: path.join(__dirname, "/test/index.js")
+        index: path.join(__dirname, "/src/export-as-vue-plugin.js")
     },
     output: {
-        path: path.join(__dirname, "/test/dist"),
-        filename: "[name].js",
+        path: path.join(__dirname, "/dist/browser/"),
+        filename: "emoji-picker-vue.min.js",
         libraryTarget: 'umd',
-        library: 'emoji-picker-vue',
+        library: 'emojiPicker',
         umdNamedDefine: true
     },
     externals: {
-        vue: 'vue',
+        vue: 'vue'
+    },
+    optimization: {
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: path.join(__dirname,'/test/template/index.template.html')
-        }),
         new OptimizeCSSAssetsPlugin(),
         new MiniCssExtractPlugin({
             filename: 'emoji-picker-vue.min.css',
-            chunkFilename: 'emoji-picker-vue.min.css',
+            chunkFilename: 'emoji-picker-vue.min.css'
         })
     ]
 })

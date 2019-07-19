@@ -1,10 +1,12 @@
 import Vue from 'vue';
-import app from './components/app/app.vue';
+//import app from '../src/components/emojiPicker/index.vue';
+import emojiPicker from '../dist/emoji-picker-vue';
+import '../dist/emoji-picker-vue.css';
 
 new Vue({
     el: '#app',
     components: {
-        app
+        emojiPicker
     },
     data: {
         target: null,
