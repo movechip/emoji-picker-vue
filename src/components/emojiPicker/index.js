@@ -72,7 +72,7 @@ export default {
 
             const width = this.config.width,
                 height = this.config.height;
-            width ? (this.defaultStyle.width = width): '';
+            width ? this.defaultStyle.width = width : '';
             height ? this.defaultStyle.height = height : '';
             
         },
@@ -87,24 +87,6 @@ export default {
             //The color of unicode-emoji-code of IE9+ is only black and white
             window.navigator.userAgent.match(/(MSIE|Trident)/i) !== null ?
                 document.body.style.fontFamily = 'Segoe UI Emoji' : '';
-        },
-        queryScrollBarWidth() {
-            const el = document.createElement('div');
-            el.style.position = 'absolute';
-            el.style.top = '0';
-            el.style.left = '0';
-            el.style.visibility = 'hidden';
-            el.style.width = '100px';
-            el.style.height = '100px';
-            document.body.appendChild(el);
-
-            const width = el.clientWidth || el.offsetWidth;
-            el.style.overflowY = 'scroll';
-
-            const widthScrollBar = width - (el.clientWidth || el.offsetWidth);
-
-            document.body.removeChild(el);
-            return widthScrollBar;
         }
     }
 }
