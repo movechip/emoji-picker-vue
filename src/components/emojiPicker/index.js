@@ -1,8 +1,20 @@
 import { emojiCodes, tabCodes, recentCodes } from './codepoints';
-import { returnStatement } from 'babel-types';
 
 export default {
-    props: ['target', 'show', 'config'],
+    props: {
+        target: {
+            type: HTMLElement,
+            required: true
+        },
+        show: {
+            type: Boolean,
+            required: true
+        },
+        config: {
+            type: Object,
+            default: null
+        }
+    },
     data() {
         return {
             emojiCodes,
