@@ -24,7 +24,7 @@
 <body>
    <div id="target" contenteditable="true"></div>
    <div id="app">
-    <emoji-picker :target="target" :show="isShowEmoji">
+    <emoji-picker :target="target" :show="isShowEmoji" :config="customStyle">
         <label @click="showEmoji" class="emoji-trigger" v-html="triggerCode"></label>
     </emoji-picker>
    </div>

@@ -1,7 +1,5 @@
 import Vue from 'vue';
-//import app from '../src/components/emojiPicker/index.vue';
-import emojiPicker from '../dist/emoji-picker-vue';
-import '../dist/emoji-picker-vue.css';
+import emojiPicker from '../src/components/emojiPicker/index.vue';
 
 new Vue({
     el: '#app',
@@ -11,7 +9,11 @@ new Vue({
     data: {
         target: null,
         isShowEmoji: false,
-        triggerCode: '&#x1F600;'
+        triggerCode: '&#x1F600;',
+        customStyle: {
+           // width: '400px',
+           // height: '180px'
+        }
     },
     created() {
         this.target = document.querySelector('#target');

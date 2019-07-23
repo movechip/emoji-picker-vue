@@ -14,7 +14,7 @@ div(ref="emoji" class="emoji")
             p(class="emoji-main__text") recent
             ul(class="emoji-l-list")
                 li(class="emoji-l-list__item" @click="insertEmoji(v,'recent')" v-for="(v,k) in recentCodes" :key="k" v-html="v")
-        div(ref="emojibody" class="emoji-main__body emoji__scroll")
+        div(ref="emojibody" :style="defaultStyle" class="emoji-main__body emoji__scroll")
             div(class="emoji-main__tab-view" v-for="(v,k) in emojiCodes" :key="k" :class="tabviewState[k]")
                 ul(class="emoji-l-list")
                     li(class="emoji-l-list__item" @click="insertEmoji(vv)" v-for="(vv,kk) in v.codes" :key="kk" v-html="vv")
