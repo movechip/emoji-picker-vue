@@ -2,7 +2,9 @@
 ## demo
 ![demo](./misc/emoji-picker-vue.gif)
 
-[demo source](./dist/browser/index.html)
+[online](https://i9neq.codesandbox.io/)
+
+[codesandbox](https://codesandbox.io/embed/new-butterfly-i9neq)
 ## In node
 
     npm install emoji-picker-vue | yarn add emoji-picker-vue
@@ -32,5 +34,7 @@ config | Object | @optional | config the style of emoji
 config.width | String | 288px | width of emoji
 config.height | String | 180px | height of emoji
 
+## custom
+- custom your own emoji or add more emoji, you should edit  `src/components/codepoints.js`, then run `npm run release`, finally, new `emoji-picker-vue.min.js` will be generated in `dist/`, emoji codepoint can be found in [unicode.org/emoji](https://unicode.org/emoji/charts/emoji-list.html)
 
-
+- custom theme, you should edit  `src/components/index.styl`, then run `npm run release`, finally, new `emoji-picker-vue.min.css` will be generated in `dist/`

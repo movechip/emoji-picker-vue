@@ -11,6 +11,15 @@
     "browser": "webpack --config webpack.dist.browser.config.js",
     "release": "webpack --config webpack.dist.release.config.js"
   },
+  "keywords": ["emoji","emoji-picker","emoji-picker-vue"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/movechip/emoji-picker-vue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/movechip/emoji-picker-vue/issues"
+  },
+  "homepage": "https://github.com/movechip",
   "dependencies": {
     "vue": "^2.6.10"
   },
