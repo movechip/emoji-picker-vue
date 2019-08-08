@@ -22,8 +22,10 @@
 <link href="emoji-picker-vue.min.css" rel="stylesheet"></head>
 
 <body>
-   <div id="target" contenteditable="true"></div>
+   
    <div id="app">
+    <!-- <div id="target" contenteditable="true"></div> -->
+    <input id="target"/>
     <app :target="target" :show="isShowEmoji">
         <label @click="showEmoji" class="emoji-trigger" v-html="triggerCode"></label>
     </app>
