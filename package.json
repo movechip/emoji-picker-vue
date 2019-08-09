@@ -1,6 +1,6 @@
 {
   "name": "emoji-picker-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "this is a emoji component using vue",
   "main": "./dist/index.js",
   "author": "movechip",
@@ -11,7 +11,11 @@
     "browser": "webpack --config webpack.dist.browser.config.js",
     "release": "webpack --config webpack.dist.release.config.js"
   },
-  "keywords": ["emoji","emoji-picker","emoji-picker-vue"],
+  "keywords": [
+    "emoji",
+    "emoji-picker",
+    "emoji-picker-vue"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/movechip/emoji-picker-vue.git"
