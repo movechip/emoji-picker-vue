@@ -9,7 +9,7 @@ module.exports = merge(webpackBaseConfig,{
     mode: "development",
     devtool: 'eval-source-map',
     entry: {
-        index: path.join(__dirname, "/test/index.js")
+        index: path.join(__dirname, "/test/test-in-node/index.js")
     },
     output: {
         path: path.join(__dirname, "/test/"),
@@ -54,7 +54,7 @@ module.exports = merge(webpackBaseConfig,{
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: path.join(__dirname,'/test/template/index.template.html')
+            template: path.join(__dirname,'/test/test-in-node/template/index.template.html')
         }),
         new webpack.HotModuleReplacementPlugin(),
         new MiniCssExtractPlugin({

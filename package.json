@@ -2,7 +2,7 @@
   "name": "emoji-picker-vue",
   "version": "1.0.0",
   "description": "this is a emoji component using vue",
-  "main": "./dist/emoji-picker-vue.min.js",
+  "main": "./dist/index.js",
   "author": "movechip",
   "license": "MIT",
   "scripts": {

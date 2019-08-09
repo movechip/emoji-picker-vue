@@ -11,16 +11,16 @@
 ```js
 import Vue from 'vue';
 import emojiPicker from 'emoji-picker-vue';
-import 'emoji-picker-vue/emoji-picker-vue.min.css';
+import 'emoji-picker-vue/dist/index.css';
 ```
 ## In browser
 ```html
 <head>
-    <link rel="stylesheet" href="emoji-picker-vue.min.css"/>
+    <link rel="stylesheet" href="dist/browser/emoji-picker-vue.min.css"/>
 </head>
 <body>
     <script src="vue.min.js"></script>
-    <script src="emoji-picker-vue.js"></script>
+    <script src="dist/browser/emoji-picker-vue.min.js"></script>
 </body>
 ```
 
@@ -28,13 +28,13 @@ import 'emoji-picker-vue/emoji-picker-vue.min.css';
 
 Prop | Type | Default | Description
 -|-|-|-
-target | HTMLInputElement | @required | container in which emoji is put
+target | HTMLDivElement | @required | container in which emoji is put
 show | Boolean | @required | control the display of emoji
 config | Object | @optional | config the style of emoji
 config.width | String | 288px | width of emoji
 config.height | String | 180px | height of emoji
 
 ## custom
-- custom your own emoji or add more emoji, you should edit  `src/components/codepoints.js`, then run `npm run release`, finally, new `emoji-picker-vue.min.js` will be generated in `dist/`, emoji codepoint can be found in [unicode.org/emoji](https://unicode.org/emoji/charts/emoji-list.html)
+- custom your own emoji or add more emoji, you should edit  `src/components/codepoints.js`, then run `npm run release`, finally, new `index.js` will be generated in `dist/`, emoji codepoint can be found in [unicode.org/emoji](https://unicode.org/emoji/charts/emoji-list.html)
 
-- custom theme, you should edit  `src/components/index.styl`, then run `npm run release`, finally, new `emoji-picker-vue.min.css` will be generated in `dist/`
+- custom theme, you should edit  `src/components/emojiPicker/index.styl`, then run `npm run release`, finally, new `index.css` will be generated in `dist/`

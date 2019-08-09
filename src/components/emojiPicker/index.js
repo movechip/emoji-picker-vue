@@ -41,9 +41,13 @@ export default {
         this.setStyle();
         this.tabState[this.showIdx]['emoji-js-tab--is-active'] = true;
         this.tabviewState[this.showIdx]['emoji-js-tabview--is-active'] = true;
+        //target may be HTMLDivElement or undefined when this components is mounted
+        if(this.target) {
+            this.initTarget();
+        }
     },
     watch: {
-        target(){
+        target(){////target may be HTMLDivElement or undefined when this components is mounted
             this.initTarget();
         }
     },

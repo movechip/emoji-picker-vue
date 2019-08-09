@@ -1,4 +1,4 @@
-<style src="./index.styl" lang="stylus" scoped></style>
+<style src="./index.styl" lang="stylus"></style>
 <script src="./index.js"/>
 
 <template lang="pug">

@@ -6,8 +6,8 @@ div
 </template>
 <script>
 import Vue from 'vue';
-import emojiPicker from '../src/components/emojiPicker/index.vue';
-import '../dist/emoji-picker-vue.min.css';
+import emojiPicker from '../../dist/index.js';
+import '../../dist/index.css';
 export default {
     components: {
         emojiPicker
