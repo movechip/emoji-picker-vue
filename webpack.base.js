@@ -1,6 +1,6 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+//const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     resolve: {
@@ -19,29 +19,30 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            // you can specify a publicPath here
-                            // by default it uses publicPath in webpackOptions.output
-                            hmr: process.env.NODE_ENV === 'development',
-                        },
-                    },
+                    // {
+                    //     loader: MiniCssExtractPlugin.loader,
+                    //     options: {
+                    //         // you can specify a publicPath here
+                    //         // by default it uses publicPath in webpackOptions.output
+                    //         hmr: process.env.NODE_ENV === 'development',
+                    //     },
+                    // },
+                    "style-loader",
                     "css-loader"
                 ]
             },
             {
                 test: /\.styl(us)?/,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                        // you can specify a publicPath here
-                        // by default it uses publicPath in webpackOptions.output
-                        hmr: process.env.NODE_ENV === 'development',
-                        },
-                    }
-                    ,"css-loader","stylus-loader"
+                    // {
+                    //     loader: MiniCssExtractPlugin.loader,
+                    //     options: {
+                    //     // you can specify a publicPath here
+                    //     // by default it uses publicPath in webpackOptions.output
+                    //     hmr: process.env.NODE_ENV === 'development',
+                    //     },
+                    // }
+                    "css-loader","stylus-loader"
                 ]
             },
             {

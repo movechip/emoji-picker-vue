@@ -23,7 +23,6 @@ export default {
             tabviewState: [],
             showIdx: 0,
             recentCodes,
-            targetType: '',
             defaultStyle: {
                 width: '288px',
                 height: '180px'
@@ -38,37 +37,29 @@ export default {
         });
     },
     mounted() {
-        const type = Object.prototype.toString.call(this.target).slice(8,-1);
-        switch (type) {
-            case 'HTMLInputElement':
-                this.targetType = 'input';
-                break;
-            case 'HTMLDivElement':
-                this.targetType = 'div';
-                break;
-            default:
-                throw new TypeError('prop [target] must be the element of input or div with contenteditable');
-                break;
-        }
-        this.addClickEventToTarget();
         this.setPosition();
         this.setStyle();
         this.tabState[this.showIdx]['emoji-js-tab--is-active'] = true;
         this.tabviewState[this.showIdx]['emoji-js-tabview--is-active'] = true;
     },
+    watch: {
+        target(){
+            this.initTarget();
+        }
+    },
     methods: {
         insertEmoji(codepoint, flag) {
-            if(this.targetType === 'input') {
-                const html = this.target.value;
-                this.target.value = html.substr(0, this.caret) + codepoint + html.substr(this.caret);               
-            }
-            else {
-                const html = this.target.innerHTML;
-                this.target.innerHTML = html.substr(0, this.caret) + codepoint + html.substr(this.caret);
-            }
+            const html = this.target.innerHTML;
+            this.target.innerHTML = html.substr(0, this.caret) + codepoint + html.substr(this.caret);
+            
             codepoint.length < 9 ? this.caret += 1 : this.caret += 2;
 
             this.setRecent(flag, codepoint);
+        },
+        initTarget() {
+            const type = Object.prototype.toString.call(this.target).slice(8,-1);
+            if(type !== 'HTMLDivElement') throw new TypeError('prop [target] must be the element of input or div with contenteditable');
+            this.addClickEventToTarget();
         },
         setRecent(flag, codepoint) {
             if (this.recentCodes.indexOf(codepoint) >= 0) return;

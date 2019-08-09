@@ -11,7 +11,7 @@ module.exports = merge(webpackBaseConfig,{
         index: path.join(__dirname, "/test/index.js")
     },
     output: {
-        path: path.join(__dirname, "/test/dist"),
+        path: path.join(__dirname, "/test/prod-test"),
         filename: "[name].js",
         libraryTarget: 'umd',
         library: 'emoji-picker-vue',
